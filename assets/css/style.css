@@ -39,7 +39,7 @@ html, body {
 body {
     background-color: var(--bg-color);
     /* padding: 0 var(--paddings-1x); */
-    font-family: "IBMDokument","KaiTi", "楷体", "STKaiti", "华文楷体", "BiauKai", "DFKai-SB", serif;
+    font-family: "IBMDokument", "KaiTi", "Kaiti SC", "楷体", "STKaiti", "华文楷体", "BiauKai", "DFKai-SB", serif;
 }
 .cn {
     font-family: "KaiTi", "楷体", "STKaiti", "华文楷体", "BiauKai", "DFKai-SB", serif;
