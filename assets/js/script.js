@@ -49,6 +49,7 @@ function wrapCnSymbolsInString(text) {
    写入 INTRO CONTENT
 ================================================== */
 
+const intro = document.querySelector(".intro");
 const introTextMobile = document.querySelector(".intro-mobile");
 const introTextCn = document.querySelector(".intro-cn");
 const introTextEn = document.querySelector(".intro-en");
@@ -76,6 +77,14 @@ function createIntroEnParagraphs(paragraphs) {
     .join("");
 }
 
+// collapsed内容
+function createCollapsedText(items) {
+  if (!Array.isArray(items)) {
+    return "";
+  }
+  return items.join(collapsedSeparator);
+}
+
 // Meta信息
 function createIntroMeta(collapsed = false) {
   const socialLinks = introContent.meta.social
@@ -98,108 +107,93 @@ function createIntroMeta(collapsed = false) {
   `;
 }
 
-
-//  DESKTOP — FULL
-function renderFullIntro() {
+// INITIAL RENDER
+function initIntroContent() {
+  if (!intro) return;
+  // DESKTOP 中文
   if (introTextCn) {
-    introTextCn.innerHTML = createIntroCnParagraphs(introContent.cn.full);
+    introTextCn.innerHTML = `
+      <div class="intro-state intro-full">
+        ${createIntroCnParagraphs(introContent.cn.full)}
+      </div>
+      <div class="intro-state intro-collapsed">
+        <p>
+          ${wrapCnSymbolsInString(createCollapsedText(introContent.cn.collapsed))}
+        </p>
+      </div>
+    `;
   }
+  // DESKTOP 英文
   if (introTextEn) {
-    introTextEn.innerHTML = createIntroEnParagraphs(introContent.en.full);
+    introTextEn.innerHTML = `
+      <div class="intro-state intro-full">
+        ${createIntroEnParagraphs(introContent.en.full)}
+      </div>
+      <div class="intro-state intro-collapsed">
+        <p>
+          ${createCollapsedText(introContent.en.collapsed)}
+        </p>
+      </div>
+    `;
   }
+  // META
   if (introTextMeta) {
-    introTextMeta.innerHTML = createIntroMeta(false);
+    introTextMeta.innerHTML = `
+      <div class="intro-state intro-full">
+        ${createIntroMeta(false)}
+      </div>
+      <div class="intro-state intro-collapsed">
+        ${createIntroMeta(true)}
+      </div>
+    `;
   }
-}
-
-// MOBILE — DEFAULT
-function renderMobileIntro() {
-  if (!introTextMobile) return;
-  introTextMobile.innerHTML = `
-    ${createIntroCnParagraphs(introContent.cn.mobile)}
-    ${createIntroEnParagraphs(introContent.en.mobile)}
-    <p>
-      <a id="more-button">More 更多</a>
-    </p>
-  `;
-}
-
-// MOBILE — EXPANDED
-function renderExpandedMobileIntro() {
-  if (!introTextMobile) return;
-  introTextMobile.innerHTML = `
-    ${createIntroCnParagraphs(introContent.cn.full)}
-    ${createIntroEnParagraphs(introContent.en.full)}
-    <p>
-      <a id="more-button">Less 收起</a>
-    </p>
-  `;
-}
-
-// COLLAPSED
-function createCollapsedText(items) {
-  if (!Array.isArray(items)) return "";
-  return items.join(collapsedSeparator);
-}
-
-function renderCollapsedIntro() {
+  // MOBILE
   if (introTextMobile) {
-    introTextMobile.innerHTML = `<p><a href="/">After Pity</a></p>`;
-  }
-  if (introTextCn) {
-    introTextCn.innerHTML = `<p>${wrapCnSymbolsInString(createCollapsedText(introContent.cn.collapsed))}</p>`;
-  }
-  if (introTextEn) {
-    introTextEn.innerHTML = `<p>${createCollapsedText(introContent.en.collapsed)}</p>`;
-  }
-  if (introTextMeta) {
-    introTextMeta.innerHTML = createIntroMeta(true);
+    introTextMobile.innerHTML = `
+      <div class="intro-state intro-full">
+        <div class="mobile-intro-default">
+          ${createIntroCnParagraphs(introContent.cn.mobile)}
+          ${createIntroEnParagraphs(introContent.en.mobile)}
+          <p><a href="#" class="more-button" data-action="expand" >More 更多</a></p>
+        </div>
+        <div class="mobile-intro-expanded">
+          ${createIntroCnParagraphs(introContent.cn.full)}
+          ${createIntroEnParagraphs(introContent.en.full)}
+          <p><a href="#" class="more-button" data-action="collapse">Less 收起</a></p>
+        </div>
+      </div>
+      <div class="intro-state intro-collapsed">
+        <p><a href="${homepageURL}">After Pity</a></p>
+      </div>
+    `;
   }
 }
 
 // MORE / LESS TOGGLE
-let mobileIntroExpanded = false;
 if (introTextMobile) {
-  introTextMobile.addEventListener("click", (event) => {
-    const button = event.target.closest("#more-button");
+  introTextMobile.addEventListener("click", event => {
+    const button = event.target.closest(".more-button");
     if (!button) return;
     event.preventDefault();
-    mobileIntroExpanded = !mobileIntroExpanded;
-    if (mobileIntroExpanded) {
-      renderExpandedMobileIntro();
-    } else {
-      renderMobileIntro();
-    }
+    intro.classList.toggle("mobile-expanded", button.dataset.action === "expand");
   });
 }
 
 // SCROLL
 let introCollapsed = false;
 window.addEventListener("scroll", () => {
-    
   const shouldCollapse = window.scrollY > 0;
-  
-  /* 状态没有变化就不重新生成 DOM。避免每滚动 1px 都执行 innerHTML，也可以减少临界位置闪烁。 */
   if (shouldCollapse === introCollapsed) {
     return;
   }
   introCollapsed = shouldCollapse;
-  if (introCollapsed) {
-    mobileIntroExpanded = false;
-    renderCollapsedIntro();
-  } else {
-    mobileIntroExpanded = false;
-    renderFullIntro();
-    renderMobileIntro();
-  }
+  intro.classList.toggle("is-collapsed", introCollapsed);
 });
 
 //  INIT INTRO
 function initIntro() {
-  renderFullIntro();
-  renderMobileIntro();
+  initIntroContent();
 }
-
 initIntro();
 
 
