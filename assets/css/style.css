@@ -364,6 +364,13 @@ aside.author > div {
     height: auto;
 }
 
+.article-cn,
+.headline-cn,
+.intro-cn,
+.author-cn {
+    font-family: "ChillKai" !important;
+}
+
 
 /* Desktop XL */
 @media (min-width:2000px){
