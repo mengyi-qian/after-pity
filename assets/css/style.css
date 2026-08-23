@@ -275,6 +275,7 @@ aside.author > div {
     align-items: flex-end;
     /* align-content: right; */
     /* margin-bottom: var(--paddings-1x); */
+    padding-bottom: var(--paddings-1x);
 }
 /* #pigeon {
     height: var(--headline-line-height);
