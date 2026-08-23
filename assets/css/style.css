@@ -5,6 +5,7 @@
 @font-face {
     font-family: ChillKai;
     src: url(../fonts/ChillKai_Big5.woff2) format("woff2");
+    src: url(../fonts/ChillKai_Big5.woff) format("woff");
 }
 /* @font-face {
     font-family: LXGWWenKai;
@@ -364,12 +365,6 @@ aside.author > div {
     height: auto;
 }
 
-.article-cn,
-.headline-cn,
-.intro-cn,
-.author-cn {
-    font-family: "ChillKai" !important;
-}
 
 
 /* Desktop XL */
