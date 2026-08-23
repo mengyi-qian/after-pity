@@ -6,7 +6,6 @@
     font-family: ChillKai;
     src: url("../fonts/ChillKai_AfterPity_HF1500_Site.woff2") format("woff2");
     /* src: url(../fonts/ChillKai_Big5.woff2) format("woff2"); */
-    font-display: fallback;
 }
 /* @font-face {
     font-family: LXGWWenKai;
