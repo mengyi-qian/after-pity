@@ -254,19 +254,23 @@ header {
     hyphens: auto;
 }
 aside.author {
-    display: inline-block;
+    display: inline-flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    vertical-align: middle;
+
     padding: 0 var(--paddings-1x);
     padding-bottom: var(--paddings-1x);
     height: 0;
     width: max-content;
-    vertical-align: middle;
-    /* transform: translateY(-50%); */
-
+    
     font-size: var(--intro-cn-font-size);
     line-height: var(--intro-line-height);
 }
 aside.author > div {
-    transform: translateY(-50%);
+    /* transform: translateY(-50%); */
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
@@ -274,6 +278,8 @@ aside.author > div {
     align-items: center;
     vertical-align: middle;
 }
+
+
 
 /* =========================
    右下角鸽子
@@ -442,12 +448,11 @@ aside.author > div {
     }
     aside.author {
         padding-bottom: 36px;
+        flex-flow: row nowrap;
+        gap: 0 var(--paddings-1x);
     }
     aside.author > div {
-        /* transform: translateY(-40%); */
         max-height: 80px;
-        flex-flow: column wrap;
-        gap: 0 var(--paddings-1x);
     }
     .work-meta {
         grid-template-columns: 1fr 2fr;
