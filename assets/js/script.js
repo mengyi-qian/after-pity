@@ -49,6 +49,10 @@ function wrapCnSymbolsInString(text) {
    写入 INTRO CONTENT
 ================================================== */
 
+const scrollDistance = parseFloat(
+  getComputedStyle(document.documentElement).getPropertyValue("--paddings-3x")
+);
+
 const intro = document.querySelector(".intro");
 const introTextMobile = document.querySelector(".intro-mobile");
 const introTextCn = document.querySelector(".intro-cn");
@@ -182,7 +186,7 @@ if (introTextMobile) {
 // SCROLL
 let introCollapsed = false;
 window.addEventListener("scroll", () => {
-  const shouldCollapse = window.scrollY > 0;
+  const shouldCollapse = window.scrollY > scrollDistance;
   if (shouldCollapse === introCollapsed) {
     return;
   }
@@ -211,28 +215,49 @@ initIntro();
   
 const headlines = document.querySelectorAll(".headline");
 const imageCursor = document.querySelector(".image-cursor");
+const canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 
-headlines.forEach((item) => {
-
-  item.addEventListener("mouseenter", () => {
-    imageCursor.src = item.dataset.cursor;
-    imageCursor.style.opacity = "1";
-    imageCursor.style.visibility = "visible";
+if (canHover && imageCursor) {
+  headlines.forEach((item) => {
+    item.addEventListener("mouseenter", () => {
+      imageCursor.src = item.dataset.cursor;
+      imageCursor.style.opacity = "1";
+      imageCursor.style.visibility = "visible";
+    });
+    item.addEventListener("mousemove", (event) => {
+      imageCursor.style.left = `${event.clientX}px`;
+      imageCursor.style.top = `${event.clientY}px`;
+    });
+    item.addEventListener("mouseleave", () => {
+      imageCursor.style.opacity = "0";
+      imageCursor.style.visibility = "hidden";
+    });
   });
+} else {
+  headlines.forEach(item => {
+    const imageSrc = item.dataset.cursor;
+    const headlineEn = item.querySelector(".headline-en");
+    if (!imageSrc || !headlineEn) return;
 
-  item.addEventListener("mousemove", (event) => {
-    imageCursor.style.left = `${event.clientX}px`;
-    imageCursor.style.top = `${event.clientY}px`;
+    const hasComma = /,&nbsp;\s*$/.test(headlineEn.innerHTML); // 判断原标题最后是否有逗号
+    if (hasComma) {
+      headlineEn.innerHTML = headlineEn.innerHTML.replace(/,&nbsp;\s*$/, "&nbsp;");
+    }
+
+    const img = document.createElement("img");
+    img.className = "mobile-cover";
+    img.src = imageSrc;
+    img.alt = "";
+    item.appendChild(img);
+
+    if (hasComma) {
+      const punctuation = document.createElement("span");
+      punctuation.className = "headline-en mobile-cover-punctuation";
+      punctuation.innerHTML = ",&nbsp;";
+      item.appendChild(punctuation);
+    }
   });
-
-  item.addEventListener("mouseleave", () => {
-    imageCursor.style.opacity = "0";
-    imageCursor.style.visibility = "hidden";
-  });
-
-});
-
-
+}
 
 
 

@@ -28,6 +28,7 @@
     --headline-cn-font-size: 84px;
     --headline-en-font-size: 84px;
     --headline-line-height: 136px;
+    /* --headline-image-height: 96px; */
 
     --body-cn-font-size: 56px;
     --body-en-font-size: 56px;
@@ -116,6 +117,9 @@ main.homepage {
     visibility: hidden;
     transform: translate(-50%, -50%);
     transition:opacity 0.15s ease,
+}
+.mobile-cover {
+  display: none;
 }
 
 /* =========================
@@ -245,6 +249,9 @@ header {
 .headline-en {
     font-size: var(--headline-en-font-size);
     line-height: var(--headline-line-height);
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
 }
 aside.author {
     display: inline-block;
@@ -377,6 +384,7 @@ aside.author > div {
         --headline-cn-font-size: 96px;
         --headline-en-font-size: 96px;
         --headline-line-height: 154px;
+        /* --headline-image-height: 108px; */
 
         --body-cn-font-size: 64px;
         --body-en-font-size: 64px;
@@ -402,6 +410,7 @@ aside.author > div {
         --headline-cn-font-size: 64px;
         --headline-en-font-size: 64px;
         --headline-line-height: 96px;
+        /* --headline-image-height: 84px; */
 
         --body-cn-font-size: 36px;
         --body-en-font-size: 36px;
@@ -458,6 +467,7 @@ aside.author > div {
         --headline-cn-font-size: 36px;
         --headline-en-font-size: 36px;
         --headline-line-height: 64px;
+        /* --headline-image-height: 48px; */
 
         --body-cn-font-size: 24px;
         --body-en-font-size: 24px;
@@ -469,4 +479,20 @@ aside.author > div {
     aside.author > div {
         transform: translateY(-32%);
     }
+    img.mobile-cover {
+        transform: translateY(20%) scale(1.2);
+        margin-right: 8px;
+    }
+}
+
+@media (hover: none) {
+  .image-cursor {
+    display: none;
+  }
+  img.mobile-cover {
+    height: var(--headline-cn-font-size);
+    align-self: center;
+    transform: translateY(20%) scale(1.1);
+    margin-right: 10px;
+}
 }
