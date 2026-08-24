@@ -256,10 +256,11 @@ header {
 aside.author {
     display: inline-block;
     padding: 0 var(--paddings-1x);
-    padding-bottom: 18px;
+    padding-bottom: var(--paddings-1x);
     height: 0;
-    align-self: center;
-    transform: translateY(-50%);
+    width: max-content;
+    vertical-align: middle;
+    /* transform: translateY(-50%); */
 
     font-size: var(--intro-cn-font-size);
     line-height: var(--intro-line-height);
@@ -271,6 +272,7 @@ aside.author > div {
     justify-content: center;
     align-content: center;
     align-items: center;
+    vertical-align: middle;
 }
 
 /* =========================
@@ -393,7 +395,9 @@ aside.author > div {
         --pigeon-h: 75px;
         --pigeon-w: 190px;
     }
-
+    aside.author {
+        padding-bottom: 48px;
+    } 
 }
 
 /* Tablet Horizontal */
@@ -419,9 +423,6 @@ aside.author > div {
         --pigeon-h: 45px;
         --pigeon-w: 114px;
     }
-    aside.author > div {
-        transform: translateY(-46%);
-    }    
 }
 
 /* Tablet Vertical */
@@ -439,8 +440,11 @@ aside.author > div {
     .intro-cn, .intro-en {
         display: none;
     }
+    aside.author {
+        padding-bottom: 36px;
+    }
     aside.author > div {
-        transform: translateY(-40%);
+        /* transform: translateY(-40%); */
         max-height: 80px;
         flex-flow: column wrap;
         gap: 0 var(--paddings-1x);
@@ -476,23 +480,20 @@ aside.author > div {
         --pigeon-h: 30px;
         --pigeon-w: 76px;
     }
-    aside.author > div {
-        transform: translateY(-32%);
-    }
-    img.mobile-cover {
-        transform: translateY(20%) scale(1.2);
-        margin-right: 8px;
-    }
+    aside.author {
+        padding-bottom: 12px;
+    } 
 }
 
 @media (hover: none) {
-  .image-cursor {
-    display: none;
-  }
-  img.mobile-cover {
-    height: var(--headline-cn-font-size);
-    align-self: center;
-    transform: translateY(20%) scale(1.1);
-    margin-right: 10px;
-}
+    .image-cursor {
+        display: none;
+    }
+    img.mobile-cover {
+        display: inline;
+        height: var(--headline-cn-font-size);
+        align-self: center;
+        transform: translateY(20%) scale(1.1);
+        margin-right: 8px;
+    }
 }
