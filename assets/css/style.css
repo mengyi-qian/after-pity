@@ -24,6 +24,7 @@
     --intro-cn-font-size: 14px;
     --intro-en-font-size: 16px;
     --intro-line-height: 24px;
+    --dot-size: 12px;
 
     --headline-cn-font-size: 84px;
     --headline-en-font-size: 84px;
@@ -324,8 +325,8 @@ aside.author > div {
 }
 .dot {
     display: inline-block;
-    width: 12px;
-    height: 12px;
+    width: var(--dot-size);
+    height: var(--dot-size);
     background-color: var(--text-color);
     transform: translateY(1px);
 }
@@ -388,6 +389,7 @@ aside.author > div {
         --intro-cn-font-size: 15px;
         --intro-en-font-size: 16px;
         --intro-line-height: 25px;
+        --dot-size: 12px;
 
         --headline-cn-font-size: 96px;
         --headline-en-font-size: 96px;
@@ -403,7 +405,7 @@ aside.author > div {
     }
     aside.author {
         padding-bottom: 48px;
-    } 
+    }
 }
 
 /* Tablet Horizontal */
@@ -416,6 +418,7 @@ aside.author > div {
         --intro-cn-font-size: 13px;
         --intro-en-font-size: 14px;
         --intro-line-height: 20px;
+        --dot-size: 10.5px;
 
         --headline-cn-font-size: 64px;
         --headline-en-font-size: 64px;
@@ -472,6 +475,7 @@ aside.author > div {
         --intro-cn-font-size: 12px;
         --intro-en-font-size: 12px;
         --intro-line-height: 20px;
+        --dot-size: 9px;
 
         --headline-cn-font-size: 36px;
         --headline-en-font-size: 36px;
