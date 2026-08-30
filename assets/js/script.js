@@ -156,8 +156,8 @@ function initIntroContent() {
     introTextMobile.innerHTML = `
       <div class="intro-state intro-full">
         <div class="mobile-intro-default">
-          ${wrapCnSymbolsInString(createCollapsedText(introContent.cn.collapsed))}
-          ${createCollapsedText(introContent.en.collapsed)}
+          ${createIntroCnParagraphs(introContent.cn.mobile)}
+          ${createIntroCnParagraphs(introContent.en.mobile)}
           <p><a href="#" class="more-button" data-action="expand" >更多 More</a></p>
         </div>
         <div class="mobile-intro-expanded">
@@ -362,11 +362,11 @@ function initWorkPage() {
   document.title = workData.page_title ?? "";
   setText(workTitle, workData.work_title);
   setText(authorName, workData.author_name);
-  setText(authorIntro, workData.author_intro);
+  setMultilineText(authorIntro, workData.author_intro);
   setText(workYear, workData.work_year);
-  setText(workMaterial, workData.work_material);
+  setMultilineText(workMaterial, workData.work_material);
   setMultilineText(workSize, workData.work_size);
-  setText(workEdition, workData.work_edition);
+  setMultilineText(workEdition, workData.work_edition);
 
   workBody.innerHTML = "";
   renderParagraphSection("article article-cn", workData.work_intro_cn, true);

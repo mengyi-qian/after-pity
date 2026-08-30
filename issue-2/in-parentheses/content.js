@@ -3,14 +3,20 @@ const workData = {
   page_title: "XXX",
   work_title: "XXX",
   author_name: "XXX",
-  author_intro: "XXXXXX，XXXXXXXXX。",
+  author_intro: [
+    "XXXXXX，XXXXXXXXX。"
+  ],
   work_year: "XXXX",
-  work_material: "XXX，XXX，XXX",
+  work_material: [
+    "XXX，XXX，XXX"
+  ],
   work_size: [
     "XX * XX * XX CM",
     "XX * XX * XX CM"
   ],
-  work_edition: "XXX",
+  work_edition: [
+    "XXX"
+  ],
 
   work_intro_cn: [
     `XXX，XXX，XXX，XXX，XXX。`,
