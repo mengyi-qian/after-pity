@@ -156,14 +156,14 @@ function initIntroContent() {
     introTextMobile.innerHTML = `
       <div class="intro-state intro-full">
         <div class="mobile-intro-default">
-          ${createIntroCnParagraphs(introContent.cn.mobile)}
-          ${createIntroEnParagraphs(introContent.en.mobile)}
-          <p><a href="#" class="more-button" data-action="expand" >More 更多</a></p>
+          ${wrapCnSymbolsInString(createCollapsedText(introContent.cn.collapsed))}
+          ${createCollapsedText(introContent.en.collapsed)}
+          <p><a href="#" class="more-button" data-action="expand" >更多 More</a></p>
         </div>
         <div class="mobile-intro-expanded">
           ${createIntroCnParagraphs(introContent.cn.full)}
           ${createIntroEnParagraphs(introContent.en.full)}
-          <p><a href="#" class="more-button" data-action="collapse">Less 收起</a></p>
+          <p><a href="#" class="more-button" data-action="collapse">收起 Less</a></p>
         </div>
       </div>
       <div class="intro-state intro-collapsed">
@@ -376,7 +376,13 @@ function initWorkPage() {
 
 initWorkPage();
 
-
+const workMeta = document.querySelector(".work-meta");
+const workLabel = document.querySelector(".work-label");
+if (workMeta && workLabel) {
+  workLabel.addEventListener("click", () => {
+    workMeta.classList.toggle("is-open");
+  });
+}
 
 
 
@@ -406,7 +412,7 @@ const pigeonTransforms = [
 
 const IDLE_TIME = 20000;       // 鼠标静止20秒
 const PIGEON_INTERVAL = 1000;  // 每秒1只
-const MAX_PIGEONS = 36;
+const MAX_PIGEONS = 72;
 
 const MAX_PIGEON_HEIGHT = 48;
 const MAX_PIGEON_WIDTH = 60;
