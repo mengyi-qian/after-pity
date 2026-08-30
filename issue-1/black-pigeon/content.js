@@ -42,7 +42,7 @@ const workData = {
     },
     {
       type: "video",
-      file: "3.MP4",
+      file: "3.mp4",
       controls: true,
       muted: true,
       autoplay: true,
