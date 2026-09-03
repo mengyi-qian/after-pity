@@ -1,8 +1,13 @@
 const workData = {
 
   page_title: "Talk to me on My Left",
-  work_title: "耳朵 Talk to me on My Left",
-  author_name: "Yuanbo",
+  work_title: [
+    "耳朵",
+    "Talk to me on My Left"
+  ],
+  author_name: [
+    "Yuanbo"
+  ],
   author_intro: [
     "视觉设计师，STUDIO DPi 联合创始人。她的个人实践试图与设计保持一种友好而紧张的关系。",
     "Visual designer, co-founder of STUDIO DPi. Her personal practice attempts to maintain a friendly yet tense relationship with design."

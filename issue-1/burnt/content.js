@@ -1,8 +1,14 @@
 const workData = {
 
   page_title: "Burnt",
-  work_title: "燃烧 Burnt",
-  author_name: "大梦 Damoon",
+  work_title: [
+    "燃烧",
+    "Burnt"
+  ],
+  author_name: [
+    "大梦",
+    "Damoon"
+  ],
   author_intro: [
     "设计师、开发者和手工爱好者。她是 nonplace studio 的联合创始人，也是 e-flux 的艺术总监。",
     "Designer, developer, craft enthusiast. She is the co-founder of nonplace studio and the art director of e-flux."

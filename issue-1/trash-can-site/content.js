@@ -1,15 +1,21 @@
 const workData = {
 
   page_title: "Trash-Can.site",
-  work_title: "垃圾桶 Trash-Can.site",
-  author_name: "Mao",
+  work_title: [
+    "垃圾桶",
+    "Trash-Can.site"
+  ],
+  author_name: [
+    "Mao"
+  ],
   author_intro: [
     "nonplace studio 联合创始人，After Pity 发起人之一。她将自身投射于现实世界与数字世界的日常主题中，并通过视角转换将观众带入其中，试图创造另类的叙事，重新审视隐藏在日常生活之下的既有结构。",
     "Co-founder of nonplace studio and one of the founders of After Pity. She projects herself onto everyday themes in both the real and digital worlds, drawing viewers in through shifts in perspective to create alternative narratives and re-examine the structures hidden beneath daily life."
   ],
   work_year: "2020",
   work_material: [
-    "网站 Website"
+    "网站",
+    "Website"
   ],
   work_size: [
     "X"

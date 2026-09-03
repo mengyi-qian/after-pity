@@ -59,7 +59,8 @@ const introTextCn = document.querySelector(".intro-cn");
 const introTextEn = document.querySelector(".intro-en");
 const introTextMeta = document.querySelector(".intro-meta");
 
-const collapsedSeparator = "&emsp;&emsp;";
+// const collapsedSeparator = "&emsp;&emsp;";
+const collapsedSeparator = `<span class="intro-gap"></span>`
 
 // 中文Intro
 function createIntroCnParagraphs(paragraphs) {
@@ -165,9 +166,15 @@ function initIntroContent() {
           ${createIntroEnParagraphs(introContent.en.full)}
           <p><a href="#" class="more-button" data-action="collapse">收起 Less</a></p>
         </div>
+        <div class="single-column-meta">
+          ${createIntroMeta(false)}
+        </div>
       </div>
       <div class="intro-state intro-collapsed">
         <p><a href="${homepageURL}">After Pity</a></p>
+        <div class="single-column-meta">
+          ${createIntroMeta(true)}
+        </div>
       </div>
     `;
   }
@@ -360,8 +367,8 @@ function initWorkPage() {
   }
 
   document.title = workData.page_title ?? "";
-  setText(workTitle, workData.work_title);
-  setText(authorName, workData.author_name);
+  setMultilineText(workTitle, workData.work_title);
+  setMultilineText(authorName, workData.author_name);
   setMultilineText(authorIntro, workData.author_intro);
   setText(workYear, workData.work_year);
   setMultilineText(workMaterial, workData.work_material);

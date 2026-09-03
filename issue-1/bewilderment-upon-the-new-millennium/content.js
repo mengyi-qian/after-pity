@@ -1,8 +1,13 @@
 const workData = {
 
   page_title: "Bewilderment upon the New Millennium",
-  work_title: "千禧之后的问 Bewilderment upon the New Millennium",
-  author_name: "ditto",
+  work_title: [
+    "千禧之后的问",
+    "Bewilderment upon the New Millennium"
+  ],
+  author_name: [
+    "ditto"
+  ],
   author_intro: [
     "由漫画家 gantea 和平面设计师 oranz 组成的二人艺术小组。",
     "A duo creative practice consisting of cartoonist  gantea and graphic designer oranz."

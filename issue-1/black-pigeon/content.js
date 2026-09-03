@@ -1,8 +1,13 @@
 const workData = {
 
   page_title: "Black Pigeon",
-  work_title: "鸽子 Black Pigeon",
-  author_name: "Oneball",
+  work_title: [
+    "鸽子",
+    "Black Pigeon"
+  ],
+  author_name: [
+    "Oneball"
+  ],
   author_intro: [
     "设计师，After Pity发起人之一。",
     "Designer and one of the initiators of After Pity."

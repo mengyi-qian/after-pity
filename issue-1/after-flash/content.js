@@ -1,8 +1,14 @@
 const workData = {
 
   page_title: "After Flash",
-  work_title: "闪光 After Flash",
-  author_name: "陈熙 Chen Xi",
+  work_title: [
+    "闪光",
+    "After Flash"
+  ],
+  author_name: [
+    "陈熙",
+    "Chen Xi"
+  ],
   author_intro: [
     "艺术家、设计师，设计工作室 nonplace studio 以及艺术空间 玄关 的联合创始人。",
     "An artist, designer, and co-founder of the design studio nonplace studio and the art space xuanguan."

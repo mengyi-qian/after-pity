@@ -1,8 +1,13 @@
 const workData = {
 
   page_title: "XXX",
-  work_title: "XXX",
-  author_name: "XXX",
+  work_title: [
+    "XXX",
+    "XXX"
+  ],
+  author_name: [
+    "XXX"
+  ],
   author_intro: [
     "XXXXXX，XXXXXXXXX。"
   ],
